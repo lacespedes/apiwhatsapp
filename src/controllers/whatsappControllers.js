@@ -6,6 +6,11 @@ const VerifyToken = (req, res = response) => {
         const token = req.query["hub.verify-tken"];
         const challenge = req.query["hub.challenge"];
 
+        console.log(accessToken);
+        console.log(token);
+        console.log(challenge);
+        
+
         if (!challenge || !token || token !== accessToken) {
             res.status(400).send();
         }
