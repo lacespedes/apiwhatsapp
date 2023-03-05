@@ -1,6 +1,6 @@
 const { response } = require("express");
 const fs = require("fs");
-const myConsole = new console.Console(fs.createWriteStream("./logs,txt"));
+//const myConsole = new console.Console(fs.createWriteStream("./logs,txt"));
 
 const VerifyToken = (req, res = response) => {
     try {
@@ -25,11 +25,12 @@ const ReceiveMessage = (req, res = response) => {
         const value = changes["value"];
         const messageObject = value["messages"];
 
-        myConsole.log(messageObject);
+        //myConsole.log(messageObject);
+        console.log(messageObject);
 
         res.send("EVENT_RECEIVED");
     } catch (error) {
-        myConsole.log(error);
+        console.log(error);
         res.send("EVENT_RECEIVED");
     }
 }
