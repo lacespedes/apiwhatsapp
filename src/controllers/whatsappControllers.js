@@ -4,7 +4,7 @@ const VerifyToken = (req, res = response) => {
     try {
         const accessToken = process.env.TOKEN;
         const token = req.query["hub.verify-tken"];
-        const challenge = req.body["hub.challenge"];
+        const challenge = req.query["hub.challenge"];
 
         if (!challenge || !token || token !== accessToken) {
             res.status(400).send();
