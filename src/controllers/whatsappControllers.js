@@ -3,7 +3,7 @@ const { response } = require("express");
 const VerifyToken = (req, res = response) => {
     try {
         const accessToken = process.env.TOKEN;
-        const token = req.query["hub.verify-tken"];
+        const token = req.query["hub.verify-token"];
         const challenge = req.query["hub.challenge"];
 
         console.log(accessToken);
