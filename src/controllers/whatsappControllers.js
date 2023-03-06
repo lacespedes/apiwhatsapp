@@ -1,6 +1,5 @@
 const { response } = require("express");
 const fs = require("fs");
-//const myConsole = new console.Console(fs.createWriteStream("./logs,txt"));
 
 const VerifyToken = (req, res = response) => {
     try {
@@ -24,15 +23,29 @@ const ReceiveMessage = (req, res = response) => {
         const changes = (entry["changes"])[0];
         const value = changes["value"];
         const messageObject = value["messages"];
-
-        //myConsole.log(messageObject);
-        console.log(messageObject);
-
+        const messages = messageObject[0];
+        const text = GetTextUser(messages);
+        
         res.send("EVENT_RECEIVED");
     } catch (error) {
-        console.log(error);
+        
         res.send("EVENT_RECEIVED");
     }
+}
+
+const GetTextUser = (messages) => {
+    let text = "";
+    const typeMessage = messages["type"] ;
+    switch (typeMessage) {
+        case "text":
+            text = (messages["text"])
+            break;
+    
+        default:
+            console.log(typeMessage);
+            break;
+    }
+    return text;
 }
 
 module.exports = {
