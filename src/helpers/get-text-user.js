@@ -13,9 +13,10 @@ const getTextUser = (messages) => {
             break;    
 
         default:
-            console.log(typeMessage);
+            console.log('sin Mensaje');
             break;
     }
+    console.log(typeMessage);
     return text;
 }
 
@@ -32,9 +33,10 @@ const getTextInteractiveObject = (interactiveObject) => {
             break;
                 
         default:
-            console.log(typeInteractive);
+            console.log('Sin mensaje');
             break;
     }
+    console.log(typeInteractive);
     return text;
 }
 

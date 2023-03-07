@@ -25,10 +25,13 @@ const ReceiveMessage = (req, res = response) => {
         const changes = (entry["changes"])[0];
         const value = changes["value"];
         const messageObject = value["messages"];
-        const messages = messageObject[0];
-        const text = getTextUser(messages);
-        
-        console.log(text);
+
+        if (messageObject) {
+            const messages = messageObject[0];
+            const text = getTextUser(messages);
+            
+            console.log(text); 
+        }
 
         res.send("EVENT_RECEIVED");
     } catch (error) {
