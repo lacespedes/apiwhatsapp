@@ -17,7 +17,7 @@ const sendMessageWhatsApp = (textResponse, number) => {
         path: "/v15.0/105593125813029/messages",
         method: "POST",
         body: data,
-        header: {
+        headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer EAAMwZAWNuY9MBADBvvxeD4ZBvEtDFZCwWwedQVsDbczIczwLhpVPRbWHIE0vrZBmcZBWgNbLwkbESX2DyjZADyyamU4XoO0OWmUBJoJzM1IZBY4kYNpbxpj9IERSKZAWPBEhDfvZBPJADBtWCZAodpUFS3AkQngVgZAdUSrscrCy8eb8p8uZBXQN4w05"
         }
