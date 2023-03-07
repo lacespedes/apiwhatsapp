@@ -106,6 +106,10 @@ const sampleList = (number) => {
         "type": "interactive",
         "interactive": {
             "type": "list",
+            "header": {
+                "type": "text",
+                "text": "OPCIONES"
+            },
             "body": {
                 "text": "✔ Tengo estas opciones"
             },
@@ -113,7 +117,7 @@ const sampleList = (number) => {
                 "text": "Selecciona una de las opciones para poder atenderte"
             },
             "action": {
-                "buttons": "Ver opciones",
+                "button": "Ver opciones",
                 "sections": [
                     {
                         "title": "Compra y vende productos",
@@ -124,24 +128,24 @@ const sampleList = (number) => {
                                 "description": "Compra los mejores productos para tu hogar"
                             },
                             {
-                                "id": "main_vender",
+                                "id": "main-vender",
                                 "title": "Vender",
                                 "description": "Vende tu productos"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Centro de atencion",
+                        "rows": [
+                            {
+                                "id": "main-agencia",
+                                "title": "Agencia",
+                                "description": "Puedes visitar nuestra agencia"
                             },
                             {
-                                "title": "Centro de atencion",
-                                "rows": [
-                                    {
-                                        "id": "main-agencia",
-                                        "title": "Agencia",
-                                        "description": "Puedes visitar nuestra agencia"
-                                    },
-                                    {
-                                        "id": "main-contactos",
-                                        "title": "Centro de contacto",
-                                        "description": "Te atendera uno de nuestros agentes"
-                                    }
-                                ]
+                                "id": "main-contactos",
+                                "title": "Centro de contacto",
+                                "description": "Te atendera uno de nuestros agentes"
                             }
                         ]
                     }
@@ -149,6 +153,7 @@ const sampleList = (number) => {
             }
         }
     });
+    
     return data;
 }
 

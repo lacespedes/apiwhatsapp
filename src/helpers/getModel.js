@@ -11,7 +11,7 @@ const getModel = (type, number, message) => {
         list: () => sampleList(number),
         location: () => sampleLocation(number)
     }
-    console.log('Buscando el model .........');
+    
     return MODEL[type]
     ? MODEL[type]()
     :  sampleText('No entiendo', number);
