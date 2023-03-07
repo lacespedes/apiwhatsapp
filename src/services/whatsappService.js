@@ -27,14 +27,14 @@ const sendMessageWhatsApp = (textResponse, number) => {
         res.on("data", d => {
             process.stdout.write(d);
         });
-
-        req.on("error", error => {
-            console.error(error);
-        });
-
-        req.write(data);
-        req.end();
     });
+    
+    req.on("error", error => {
+        console.error(error);
+    });
+
+    req.write(data);
+    req.end();
 }
 
 module.exports = {
