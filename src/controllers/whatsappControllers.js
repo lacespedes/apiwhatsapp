@@ -28,7 +28,7 @@ const ReceiveMessage = (req, res = response) => {
 
         if (messageObject) {
             const messages = messageObject[0];
-            const text = getTextUser(messages);
+            let text = getTextUser(messages);
             
             console.log(text); 
         }
