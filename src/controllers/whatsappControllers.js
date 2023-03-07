@@ -22,12 +22,13 @@ const VerifyToken = (req, res = response) => {
 
 const ReceiveMessage = (req, res = response) => {
     try {
-        console.log(req);
+        
         const entry = (req.body["entry"])[0];
         const changes = (entry["changes"])[0];
         const value = changes["value"];
         const messageObject = value["messages"];
         
+        console.log(messageObject);
 
         if (messageObject) {
             const messages = messageObject[0];
