@@ -2,6 +2,7 @@ const https = require("https");
 
 const sendMessageWhatsApp = (data) => {
 
+    console.log(`El body es : ${data}`);
     const options = {
         host: "graph.facebook.com",
         path: "/v15.0/105593125813029/messages",

@@ -23,19 +23,19 @@ const VerifyToken = (req, res = response) => {
 
 const ReceiveMessage = (req, res = response) => {
     try {
-        
+        console.log('Iniciando .....');
         const entry = (req.body["entry"])[0];
         const changes = (entry["changes"])[0];
         const value = changes["value"];
         const messageObject = value["messages"];
         
-        console.log(messageObject);
+        console.log(`el Objeto Message es ${messageObject}`);
 
         if (messageObject) {
             const messages = messageObject[0];
             const number = messages["from"];
             let text = getTextUser(messages);
-            
+            console.log(`El type es: ${text}`);
             const model = getModel(text, number, 'Hola Usuario');
 
             console.log(model); 
