@@ -1,6 +1,7 @@
 const { response } = require("express");
 const fs = require("fs");
 const { getTextUser } = require("../helpers/get-text-user");
+const { sendMessageWhatsApp } = require("../services/whatsappService");
 
 
 const VerifyToken = (req, res = response) => {
@@ -25,12 +26,15 @@ const ReceiveMessage = (req, res = response) => {
         const changes = (entry["changes"])[0];
         const value = changes["value"];
         const messageObject = value["messages"];
+        
 
         if (messageObject) {
             const messages = messageObject[0];
+            const number = messages["from"];
             let text = getTextUser(messages);
             
             console.log(text); 
+            sendMessageWhatsApp(`el usuario dijo: ${text}`, number)
         }
 
         res.send("EVENT_RECEIVED");
