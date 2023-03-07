@@ -1,5 +1,6 @@
 const { response } = require("express");
 const fs = require("fs");
+const { getTextUser } = require("../helpers");
 
 const VerifyToken = (req, res = response) => {
     try {
@@ -24,29 +25,17 @@ const ReceiveMessage = (req, res = response) => {
         const value = changes["value"];
         const messageObject = value["messages"];
         const messages = messageObject[0];
-        const text = GetTextUser(messages);
+        const text = getTextUser(messages);
         
+        console.log(text);
+
         res.send("EVENT_RECEIVED");
     } catch (error) {
-        
+        console.log(error);
         res.send("EVENT_RECEIVED");
     }
 }
 
-const GetTextUser = (messages) => {
-    let text = "";
-    const typeMessage = messages["type"] ;
-    switch (typeMessage) {
-        case "text":
-            text = (messages["text"])
-            break;
-    
-        default:
-            console.log(typeMessage);
-            break;
-    }
-    return text;
-}
 
 module.exports = {
     VerifyToken,
