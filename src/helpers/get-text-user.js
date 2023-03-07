@@ -1,11 +1,11 @@
 
 const getTextUser = (messages) => {
     let text = "";
-    let body = "";
     const typeMessage = messages["type"] ;
     switch (typeMessage) {
         case "text":
-            text = (messages["text"])
+            text = (messages["text"])["body"];
+            
             break;
     
         case "interactive":
@@ -17,9 +17,7 @@ const getTextUser = (messages) => {
             console.log('sin Mensaje');
             break;
     }
-    console.log(typeMessage);
-
-
+    
     return text;
 }
 
@@ -39,7 +37,7 @@ const getTextInteractiveObject = (interactiveObject) => {
             console.log('Sin mensaje');
             break;
     }
-    console.log(typeInteractive);
+    
     return text;
 }
 
