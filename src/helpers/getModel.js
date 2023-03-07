@@ -2,14 +2,14 @@ const { sampleText, sampleImage, sampleAudio, sampleVideo, sampleDocument, sampl
 
 const getModel = (type, number, message) => {
     const MODEL = {
-        text: sampleText(message, number),
-        image: sampleImage(number),
-        audio: sampleAudio(number),
-        video: sampleVideo(number),
-        document: sampleDocument(number),
-        button: sampleButtons(number),
-        list: sampleList(number),
-        location: sampleLocation(number)
+        text: () => sampleText(message, number),
+        image: () => sampleImage(number),
+        audio: () => sampleAudio(number),
+        video: () => sampleVideo(number),
+        document: () => sampleDocument(number),
+        button: () => sampleButtons(number),
+        list: () => sampleList(number),
+        location: () => sampleLocation(number)
     }
     return MODEL[type]
     ? MODEL[type]()
