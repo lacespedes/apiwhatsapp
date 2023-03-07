@@ -1,9 +1,7 @@
 const { response } = require("express");
 const fs = require("fs");
-const { getModel } = require("../helpers/getModel");
 const { getTextUser } = require("../helpers/getTextUser");
-const { sendMessageWhatsApp } = require("../services/whatsappService");
-
+const { process } = require("../shared/processMessage");
 
 const VerifyToken = (req, res = response) => {
     try {
@@ -35,11 +33,8 @@ const ReceiveMessage = (req, res = response) => {
             const messages = messageObject[0];
             const number = messages["from"];
             let text = getTextUser(messages);
-            console.log(`El type es: ${text}`);
-            const model = getModel(text, number, 'Hola Usuario');
-
-            console.log(model); 
-            sendMessageWhatsApp(model);     
+            
+            process(text, number);
         }
 
         res.send("EVENT_RECEIVED");
