@@ -1,6 +1,7 @@
 
 const getTextUser = (messages) => {
     let text = "";
+    let body = "";
     const typeMessage = messages["type"] ;
     switch (typeMessage) {
         case "text":
@@ -17,6 +18,8 @@ const getTextUser = (messages) => {
             break;
     }
     console.log(typeMessage);
+
+
     return text;
 }
 
