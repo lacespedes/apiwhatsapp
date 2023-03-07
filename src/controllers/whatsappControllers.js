@@ -1,6 +1,7 @@
 const { response } = require("express");
 const fs = require("fs");
-const { getTextUser } = require("../helpers/get-text-user");
+const { getModel } = require("../helpers/getModel");
+const { getTextUser } = require("../helpers/getTextUser");
 const { sendMessageWhatsApp } = require("../services/whatsappService");
 
 
@@ -35,8 +36,10 @@ const ReceiveMessage = (req, res = response) => {
             const number = messages["from"];
             let text = getTextUser(messages);
             
-            console.log(text); 
-            sendMessageWhatsApp(`el usuario dijo: ${text}`, number)
+            const model = getModel(text, number, 'Hola Usuario');
+
+            console.log(model); 
+            sendMessageWhatsApp(model);     
         }
 
         res.send("EVENT_RECEIVED");
