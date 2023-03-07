@@ -21,7 +21,7 @@ const getTextUser = (messages) => {
 }
 
 const getTextInteractiveObject = (interactiveObject) => {
-    const text = "";
+    let text = "";
     const typeInteractive = interactiveObject["type"];
     
     switch (typeInteractive) {
