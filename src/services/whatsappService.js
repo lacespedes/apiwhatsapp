@@ -19,7 +19,7 @@ const sendMessageWhatsApp = (textResponse, number) => {
         body: data,
         headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer EAAMwZAWNuY9MBADBvvxeD4ZBvEtDFZCwWwedQVsDbczIczwLhpVPRbWHIE0vrZBmcZBWgNbLwkbESX2DyjZADyyamU4XoO0OWmUBJoJzM1IZBY4kYNpbxpj9IERSKZAWPBEhDfvZBPJADBtWCZAodpUFS3AkQngVgZAdUSrscrCy8eb8p8uZBXQN4w05"
+            Authorization: `Bearer ${process.env.AUTH}`
         }
     };
 
