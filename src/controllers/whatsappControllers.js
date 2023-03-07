@@ -1,6 +1,7 @@
 const { response } = require("express");
 const fs = require("fs");
-const { getTextUser } = require("../helpers");
+const { getTextUser } = require("../helpers/get-text-user");
+
 
 const VerifyToken = (req, res = response) => {
     try {
