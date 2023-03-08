@@ -1,5 +1,5 @@
 const { sendMessageWhatsApp } = require("../services/whatsappService");
-const { messageText, messageList } = require("./whatsappModel");
+const { messageText, messageList, messageButtons } = require("./whatsappModel");
 
 const process = (textUser, number) => {
     textUser = textUser.toLowerCase();
@@ -17,13 +17,21 @@ const process = (textUser, number) => {
                 textUser.includes("bye")   ||
                 textUser.includes("me voy") ) {
         mensaje = "Ve con cuidado";
-    } else {
+    } else if (textUser.includes("comprar")) {
+        const model = messageButtons(number);
+        models.push(model);
+    } else if (textUser.includes("vender")) {
+        mensaje = "Registrate en https://forms.gle/aX5qxs1UKZJwr8qq5";
+    }
+    else {
         mensaje = "No entiendo lo que dices"
     }
 
-    const model = messageText(mensaje, number);
-    models.push(model);
-
+    if (mensaje.length > 0) {
+        const model = messageText(mensaje, number);
+        models.push(model);
+    }
+    
     if (textUser.includes("hola")) {
         const modelist = messageList(number);
         models.push(modelist)
