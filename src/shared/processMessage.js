@@ -27,6 +27,8 @@ const process = (textUser, number) => {
     const model = messageText(mensaje, number);
     models.push(model);
 
+    console.log(model);
+
     models.forEach(model => {
         sendMessageWhatsApp(model);
     });    
