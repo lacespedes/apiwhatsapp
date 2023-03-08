@@ -6,4 +6,6 @@ const getMessage = (message) => {
         adiós: "Ve con cuidado",
         bye: "Ve con cuidado"   
     }
+
+    message.includes(MESSAGE)
 }
