@@ -105,8 +105,25 @@ const messageButtons = (number) => {
     return data;
 }
 
+const messageLocation = (number) => {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",    
+        "recipient_type": "individual",
+        "to": number,
+        "type": "location",
+        "location": {
+            "latitude": "6.18151803837102",
+            "longitude": "-75.64688928172316",
+            "name": "Calle 42 Sur #65A-170 Casa 230",
+            "address": "Calle 42 Sur #65A-170 Casa 230"
+        }
+    });
+    return data;
+}
+
 module.exports = {
     messageText,
     messageList,
-    messageButtons
+    messageButtons,
+    messageLocation
 }

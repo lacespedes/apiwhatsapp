@@ -1,5 +1,5 @@
 const { sendMessageWhatsApp } = require("../services/whatsappService");
-const { messageText, messageList, messageButtons } = require("./whatsappModel");
+const { messageText, messageList, messageButtons, messageLocation } = require("./whatsappModel");
 
 const process = (textUser, number) => {
     textUser = textUser.toLowerCase();
@@ -22,8 +22,12 @@ const process = (textUser, number) => {
         models.push(model);
     } else if (textUser.includes("vender")) {
         mensaje = "Registrate en https://forms.gle/aX5qxs1UKZJwr8qq5";
-    }
-    else {
+    } else if (textUser.includes("agencia")) {
+        const model = messageLocation(number);
+        models.push(model);
+    } else if (textUser.includes("contacto")) {
+        mensaje = "*Centro de contacto:*\n 5555555";
+    } else {
         mensaje = "No entiendo lo que dices"
     }
 
